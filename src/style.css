@@ -1,32 +1,391 @@
-.container {
-    text-align: center;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Disables horizontal scrolling */
+  overflow-y: scroll;
+  /* Enables vertical scrolling if necessary */
+  scroll-snap-type: y mandatory;
 }
 
-h1 {
-    text-align: center;
-    font-family: "Dosis", Cursive;
-}
+#landing-page,
+#introduction,
+#travel-back,
+#be-here-now,
+#imagine-the-future,
 footer {
-    font-family: "Dosis", Cursive;
-    text-align: center;
-    margin-top: 10px;
+  scroll-snap-align: start;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
 }
 
-.city, .clock-this-city {
-    font-family: "Dosis", Cursive;
-        text-align: center;
+#landing-page {
+  background-color: #fffcf3;
 }
-.form-group {
-    display: flex;
-    flex-direction: column;
-        font-family: "Dosis", Cursive;
-        align-items: center;
+
+#introduction {
+  background-color: rgba(255, 210, 145, 0.45);
 }
-label {
-    margin-bottom: 5px;
+
+#travel-back {
+  background-color: #fffcf3;
 }
-select {
-    font-family: "Dosis", Cursive;
-    width: 200px;
-    text-align: center;
+
+#be-here-now {
+  background-color: rgba(176, 85, 75, 0.25);
+}
+#imagine-the-future {
+  background-color: #fffcf3;
+}
+
+.lp-svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.world-clock-text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 5rem;
+}
+
+.world-clock-text {
+  text-align: center;
+  font-family: "Quattrocento", "Sans Serif";
+  color: #fffcf3;
+  font-weight: 400;
+}
+
+.world-clock-text > h1 {
+  line-height: 0;
+}
+
+.reimagined-text {
+  text-align: center;
+  font-family: "Quattrocento", "Sans Serif";
+  color: #ffd291;
+  font-weight: 400;
+  padding-left: 10rem;
+}
+
+.reimagined-text > h1 {
+  margin-top: 8px;
+}
+
+.landing-thick-squiggle {
+  position: absolute;
+  top: -146px;
+  right: 0px;
+}
+
+.landing-thin-squiggle {
+  position: absolute;
+  top: -10px;
+  right: 0px;
+}
+
+.landing-page-gray-squiggle {
+  position: absolute;
+  top: -10px;
+  right: 45px;
+}
+
+/* This is the default size, which applies when none of the media queries match */
+
+.take-your-time img {
+  /* Parameters to interpolation function. Change this as needed. */
+  --from: 420;
+  --to: 600;
+  --fromWidth: 500;
+  --toWidth: 1200;
+
+  /* Implementation. Don't change this. Result is in the --between variable. */
+  --delta: calc(var(--to) - var(--from));
+  --deltaWidth: calc(var(--toWidth) - var(--fromWidth));
+  --rangeWidth: max(100vw, calc(var(--fromWidth)) * 1px);
+  --slope: calc(var(--delta) / var(--deltaWidth));
+  --base: calc((var(--from) - var(--slope) * var(--fromWidth)) * 1px);
+  --between: calc(var(--base) + (var(--rangeWidth) * var(--slope)));
+
+  width: var(--between);
+  height: auto;
+}
+
+/*
+  This is the template for the interpolation function that we worked very hard on.
+  It's just here for reference. Copy it as needed, and change the first four variables
+  to achieve the desired effect.
+
+  If you need to transform in both X and Y dimensions... you'll need to rewrite this
+  to accomodate both.
+*/
+.between-template {
+  /* Parameters to interpolation function. Change this as needed. */
+  --from: 0;
+  --to: 240;
+  --fromWidth: 600;
+  --toWidth: 1200;
+
+  /* Implementation. Don't change this. Result is in the --between variable. */
+  --delta: calc(var(--to) - var(--from));
+  --deltaWidth: calc(var(--toWidth) - var(--fromWidth));
+  --rangeWidth: max(100vw, calc(var(--fromWidth)) * 1px);
+  --slope: calc(var(--delta) / var(--deltaWidth));
+  --base: calc((var(--from) - var(--slope) * var(--fromWidth)) * 1px);
+  --between: calc(var(--base) + (var(--rangeWidth) * var(--slope)));
+
+  transform: translateX(var(--between));
+}
+
+/*
+  This is the template for the two-dimensional interpolation function.
+  
+  Change the first eight variables as needed.
+*/
+.between-template-xy {
+  /* Parameters to interpolation function. Change this as needed. */
+  --fromX: 0;
+  --toX: 240;
+  --fromWidthX: 600;
+  --toWidthX: 1200;
+
+  --fromY: 0;
+  --toY: 80;
+  --fromWidthY: 600;
+  --toWidthY: 1200;
+
+  /* Implementation. Don't change this. Result is in the --between variable. */
+  --deltaX: calc(var(--toX) - var(--fromX));
+  --deltaWidthX: calc(var(--toWidthX) - var(--fromWidthX));
+  --rangeWidthX: max(100vw, calc(var(--fromWidthX)) * 1px);
+  --slopeX: calc(var(--deltaX) / var(--deltaWidthX));
+  --baseX: calc((var(--fromX) - var(--slopeX) * var(--fromWidthX)) * 1px);
+  --betweenX: calc(var(--baseX) + (var(--rangeWidthX) * var(--slopeX)));
+
+  --deltaY: calc(var(--toY) - var(--fromY));
+  --deltaWidthY: calc(var(--toWidthY) - var(--fromWidthY));
+  --rangeWidthY: max(100vw, calc(var(--fromWidthY)) * 1px);
+  --slopeY: calc(var(--deltaY) / var(--deltaWidthY));
+  --baseY: calc((var(--fromY) - var(--slopeY) * var(--fromWidthY)) * 1px);
+  --betweenY: calc(var(--baseY) + (var(--rangeWidthY) * var(--slopeY)));
+
+  transform: translateX(var(--betweenX)) translateY(var(--betweenY));
+}
+
+.take-your-time-xy {
+  /* Parameters to interpolation function. Change this as needed. */
+  --fromX: 0;
+  --toX: 240;
+  --fromWidthX: 600;
+  --toWidthX: 1200;
+
+  --fromY: 0;
+  --toY: 60;
+  --fromWidthY: 600;
+  --toWidthY: 1200;
+
+  /* Implementation. Don't change this. Result is in the --between variable. */
+  --deltaX: calc(var(--toX) - var(--fromX));
+  --deltaWidthX: calc(var(--toWidthX) - var(--fromWidthX));
+  --rangeWidthX: max(100vw, calc(var(--fromWidthX)) * 1px);
+  --slopeX: calc(var(--deltaX) / var(--deltaWidthX));
+  --baseX: calc((var(--fromX) - var(--slopeX) * var(--fromWidthX)) * 1px);
+  --betweenX: calc(var(--baseX) + (var(--rangeWidthX) * var(--slopeX)));
+
+  --deltaY: calc(var(--toY) - var(--fromY));
+  --deltaWidthY: calc(var(--toWidthY) - var(--fromWidthY));
+  --rangeWidthY: max(100vw, calc(var(--fromWidthY)) * 1px);
+  --slopeY: calc(var(--deltaY) / var(--deltaWidthY));
+  --baseY: calc((var(--fromY) - var(--slopeY) * var(--fromWidthY)) * 1px);
+  --betweenY: calc(var(--baseY) + (var(--rangeWidthY) * var(--slopeY)));
+
+  transform: translateX(var(--betweenX)) translateY(var(--betweenY));
+}
+
+@media (min-width: 740px) {
+  .landing-thin-squiggle {
+    position: absolute;
+    right: -20vw;
+    top: -20vh;
+  }
+}
+@media (min-width: 740px) {
+  .landing-thin-squiggle img {
+    width: 141vw;
+    height: auto;
+  }
+}
+.intro-svg-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  position: absolute;
+}
+.intro-thin-squiggle {
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  min-width: 100%;
+}
+
+.intro-text-container {
+  max-width: 90%;
+  font-family: "Quattrocento";
+  font-size: 1.25rem;
+  background-color: rgba(255, 252, 243, 0.72);
+  text-align: center;
+  padding: 30px;
+  border-radius: 25px;
+  overflow: auto;
+  z-index: 1;
+  margin: 60px 0 60px 0;
+}
+/* -------------------------------------------------- */
+
+.past-svg-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  position: absolute;
+}
+.travel-back-svg {
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 700px;
+}
+
+.past-thick-squiggle {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  max-width: 100%;
+}
+
+.past-text-container {
+  max-width: 90%;
+  font-family: "Quattrocento";
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #b0554b;
+  text-align: center;
+  z-index: 1;
+  margin: 280px 0 60px 0;
+}
+
+.present-svg-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  position: absolute;
+}
+.present-thin-squiggle {
+  top: -60px;
+  left: 55%;
+  transform: translateX(-50%);
+  position: absolute;
+  max-width: 100%;
+}
+
+.be-here-now-svg {
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 700px;
+}
+
+.present-text-container {
+  color: #fffcf3;
+  font-family: "Quattrocento";
+  font-size: 1.5rem;
+  margin: 60px 0 60px 0;
+  padding: 0 50px 0 50px;
+  font-weight: 400;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+}
+
+.embrace {
+  margin-top: 75px;
+}
+
+.future-svg-container {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  position: absolute;
+  z-index: 0;
+}
+
+.future-thick-squiggle {
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  max-width: 105%;
+  background-color: #fffcf3;
+}
+
+.imagine-the-future-svg {
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 700px;
+}
+
+.future-text-container {
+  color: #000;
+  max-width: 80%;
+  margin: 100px 0 0 0;
+  font-family: "Quattrocento";
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  font-family: "Dosis", "Sans Serif";
+  background-color: #fffcf3;
+  color: #000;
+  font-size: 24px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+}
+
+.github-link {
+  color: inherit;
+}
+
+.caro {
+  font-family: "Rampart One", "Sans Serif";
+  color: #b0554b;
+  font-size: 28px;
 }

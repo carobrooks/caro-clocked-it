@@ -2,50 +2,161 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
-    <title>did you clock that?</title>
-    <link rel="stylesheet" href="src/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>take your time</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Aboreto&family=Dosis:wght@300;400;600&family=Londrina+Outline&family=Poiret+One&family=Purple+Purse&family=Rammetto+One&family=Rampart+One&family=Righteous&family=Slackey&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Dosis:wght@300;400;600&family=Rampart+One&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>yep, i clocked it.</h1>
-      <div class="form-group">
-        <label for="city-dropdown">which city do you wanna clock?</label>
-        <select id="city-dropdown" name="city-dropdown">
-          <option value="" class="clock-this-city">clock this city...</option>
-          <option value="">LA</option>
-          <option value="">Berlin</option>
-          <option value="">Tokyo</option>
-        </select>
+    <!-- LANDING PAGE -->
+    <section id="landing-page">
+      <div class="lp-svg-container">
+        <div class="landing-page-gray-squiggle">
+          <img src="src/landing-page-gray-squiggle.svg" />
+        </div>
+        <div class="landing-thick-squiggle">
+          <img src="src/Thick_squiggle.svg" />
+        </div>
+        <div class="landing-thin-squiggle">
+          <img src="src/Thin_squiggle.svg" />
+        </div>
+        <div class="take-your-time take-your-time-xy">
+          <img src="src/TakeYourTime.svg" />
+          <div class="world-clock-text-container">
+            <div class="world-clock-text">
+              <h1>a world clock</h1>
+            </div>
+            <div class="reimagined-text">
+              <h1>reimagined</h1>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="city">
-        <h2>☀️ Los Angeles ☀️</h2>
-        <div class="date">August 15th 2022</div>
-        <div class="time">1:48:15 AM</div>
+    </section>
+    <!-- ---------- -->
+    <!-- INTRO PAGE -->
+    <section id="introduction">
+      <div class="intro-svg-container">
+        <img
+          class="intro-thin-squiggle"
+          src="src/Intro-White-Thin-Squiggle.svg"
+        />
       </div>
-      <div class="city">
-        <h2>🇩🇪 Berlin 🇩🇪</h2>
-        <div class="date">August 15th 2022</div>
-        <div class="time">1:48:15 AM</div>
+      <div class="intro-text-container">
+        <p>
+          “Take Your Time” is more than just a timekeeper; it's an invitation to
+          engage with time in a fresh, contemplative way. We're all familiar
+          with time zones - how it can be morning here, evening there. But have
+          you ever used them to reflect on your relationship with time itself?
+        </p>
+        <p>
+          This clock invites you to do just that. Travel through the hours in
+          different corners of the world, not just to know what time it is, but
+          to understand the rhythm of your own moments. The world may be divided
+          by time zones, but we are all woven together in the dance of unfolding
+          moments, like delicate filaments of time bridging our shared
+          experiences.
+        </p>
+        <p>
+          Take a journey into the past, imagine the future, or savor the
+          present. Every moment that passes is a reminder that time doesn't rule
+          us, but rather gifts us with endless opportunities. No two moments are
+          ever the same, and this clock is here to remind you to make the most
+          of each one.
+        </p>
+        <p>It's your time. Are you taking it?</p>
       </div>
-      <div class="city">
-        <h2>🍣 Tokyo 🍣</h2>
-        <div class="date">August 15th 2022</div>
-        <div class="time">1:48:15 AM</div>
+    </section>
+    <!-- --------- -->
+    <!-- PAST PAGE -->
+    <section id="travel-back">
+      <div class="past-svg-container">
+        <img class="past-thick-squiggle" src="src/Past-Thick-Squiggle.svg" />
+        <img class="travel-back-svg" src="src/Travel_Back.svg" />
       </div>
-    </div>
+      <div class="past-text-container">
+        <p>
+          Journey into the hours that have passed, to places where the day has
+          already unfolded. As you explore these time zones in the past,
+          envision the unique experiences that have already taken place today.
+          Use this as an invitation to appreciate where you've been, the moments
+          you've lived, and how they have shaped your present. Remember, each
+          step back offers a unique perspective on the present moment.
+        </p>
+      </div>
+    </section>
+    <!-- ------------ -->
+    <!-- PRESENT PAGE -->
+    <section id="be-here-now">
+      <div class="present-svg-container">
+        <img
+          class="present-thin-squiggle"
+          src="src/Present-Thin-Squiggle.svg"
+        />
+        <img class="be-here-now-svg" src="src/Be_Here_Now.svg" />
+      </div>
+      <div class="present-text-container">
+        <p>Here you are, in the heart of the present moment.</p>
+        <p>
+          In these time zones,the clock aligns with yours. It's a space to
+          connect, to realize that thousands across the globe are sharing this
+          precise slice of time with you.
+        </p>
+        <p class="embrace">
+          Embrace the power of now, and let it inspire you to truly live in the
+          moment.
+        </p>
+      </div>
+    </section>
+    <!-- ----------- -->
+    <!-- FUTURE PAGE -->
+    <section id="imagine-the-future">
+      <div class="future-svg-container">
+        <img
+          class="future-thick-squiggle"
+          src="src/Future-Thick-Squiggle.svg"
+        />
+        <img class="imagine-the-future-svg" src="src/Imagine_The_Future.svg" />
+      </div>
+      <div class="future-text-container">
+        <p>
+          Venture into the hours yet to come. In these future zones, the day has
+          advanced. People might be savoring a meal, enjoying a walk, settling
+          down with a book, or perhaps sharing a laugh with loved ones. Let this
+          be a gentle nudge to think about where you're heading, and to
+          mindfully shape your moments to come. Remember, the future isn't just
+          something that happens to us; it's something we're actively creating
+          with every moment we live.
+        </p>
+      </div>
+    </section>
+    <!-- ------ -->
+    <!-- FOOTER -->
     <footer>
-      coded with care by <span>CARO</span> and is
-      <a href="https://github.com/carobrooks/caro-clocked-it" target="_blank"
-        >open-sourced on GitHub.</a
-      >
+      <div>
+        this experience was coded with care by
+        <span class="caro">CARO</span> and is
+        <a
+          href="https://github.com/carobrooks/caro-clocked-it"
+          target="_blank"
+          class="github-link"
+        >
+          open-sourced on GitHub
+        </a>
+      </div>
     </footer>
+
     <script src="src/index.js"></script>
   </body>
 </html>
