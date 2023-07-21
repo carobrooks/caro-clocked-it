@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>take your time</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data-1970-2030.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -85,7 +87,7 @@
         <img class="past-thick-squiggle" src="src/Past-Thick-Squiggle.svg" />
         <img class="travel-back-svg" src="src/Travel_Back.svg" />
       </div>
-      <div class="past-text-container">
+      <div class="past-text-container" id="past-text">
         <p>
           Journey into the hours that have passed, to places where the day has
           already unfolded.
@@ -101,6 +103,14 @@
           moment.
         </p>
       </div>
+      <div class="past-time-prompt-container" style="display: none">
+        <div class="past-time-container" id="past-time">
+          It's currently 9:28am in Honolulu, Hawaii.
+        </div>
+        <div class="past-prompt-container" id="past-prompt">
+          What kind of morning routine might someone be starting in Honolulu?
+        </div>
+      </div>
     </section>
     <!-- ------------ -->
     <!-- PRESENT PAGE -->
@@ -112,7 +122,7 @@
         />
         <img class="be-here-now-svg" src="src/Be_Here_Now.svg" />
       </div>
-      <div class="present-text-container">
+      <div class="present-text-container" id="present-text">
         <p>Here you are, in the heart of the present moment.</p>
         <p>
           In these time zones,the clock aligns with yours. It's a space to
@@ -135,7 +145,7 @@
         />
         <img class="imagine-the-future-svg" src="src/Imagine_The_Future.svg" />
       </div>
-      <div class="future-text-container">
+      <div class="future-text-container" id="future-text">
         <p>
           Venture into the hours yet to come. In these future zones, the day has
           advanced. People might be savoring a meal, enjoying a walk, settling
