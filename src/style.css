@@ -1,14 +1,19 @@
-html,
+html {
+  /* Enables vertical scrolling if necessary */
+  scroll-snap-type: y mandatory;
+  /* Put margin color here */
+}
+
 body {
+  max-width: 1440px;
   width: 100%;
   height: 100%;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   overflow-x: hidden;
   /* Disables horizontal scrolling */
   overflow-y: scroll;
-  /* Enables vertical scrolling if necessary */
-  scroll-snap-type: y mandatory;
+  position: relative;
 }
 
 #landing-page,
@@ -24,10 +29,12 @@ footer {
   justify-content: center;
   align-items: center;
   z-index: 0;
+  overflow: auto;
 }
 
 #landing-page {
   background-color: #fffcf3;
+  overflow: hidden;
 }
 
 #introduction {
@@ -80,7 +87,7 @@ footer {
   font-family: "Quattrocento", "Sans Serif";
   color: #ffd291;
   font-weight: 400;
-  padding-left: 10rem;
+  padding-left: 8rem;
 }
 
 .reimagined-text > h1 {
@@ -109,7 +116,7 @@ footer {
 
 .take-your-time img {
   /* Parameters to interpolation function. Change this as needed. */
-  --from: 420;
+  --from: 300;
   --to: 600;
   --fromWidth: 500;
   --toWidth: 1200;
@@ -117,7 +124,9 @@ footer {
   /* Implementation. Don't change this. Result is in the --between variable. */
   --delta: calc(var(--to) - var(--from));
   --deltaWidth: calc(var(--toWidth) - var(--fromWidth));
-  --rangeWidth: max(100vw, calc(var(--fromWidth)) * 1px);
+  --minScreenWidth: calc(var(--fromWidth)) * 1px;
+  --maxScreenWidth: calc(var(--toWidth) * 1px);
+  --rangeWidth: clamp(var(--minScreenWidth), 100vw, var(--maxScreenWidth));
   --slope: calc(var(--delta) / var(--deltaWidth));
   --base: calc((var(--from) - var(--slope) * var(--fromWidth)) * 1px);
   --between: calc(var(--base) + (var(--rangeWidth) * var(--slope)));
@@ -144,7 +153,9 @@ footer {
   /* Implementation. Don't change this. Result is in the --between variable. */
   --delta: calc(var(--to) - var(--from));
   --deltaWidth: calc(var(--toWidth) - var(--fromWidth));
-  --rangeWidth: max(100vw, calc(var(--fromWidth)) * 1px);
+  --minScreenWidth: calc(var(--fromWidth)) * 1px;
+  --maxScreenWidth: calc(var(--toWidth) * 1px);
+  --rangeWidth: clamp(var(--minScreenWidth), 100vw, var(--maxScreenWidth));
   --slope: calc(var(--delta) / var(--deltaWidth));
   --base: calc((var(--from) - var(--slope) * var(--fromWidth)) * 1px);
   --between: calc(var(--base) + (var(--rangeWidth) * var(--slope)));
@@ -172,14 +183,18 @@ footer {
   /* Implementation. Don't change this. Result is in the --between variable. */
   --deltaX: calc(var(--toX) - var(--fromX));
   --deltaWidthX: calc(var(--toWidthX) - var(--fromWidthX));
-  --rangeWidthX: max(100vw, calc(var(--fromWidthX)) * 1px);
+  --minScreenWidthX: calc(var(--fromWidthX)) * 1px;
+  --maxScreenWidthX: calc(var(--toWidthX) * 1px);
+  --rangeWidthX: clamp(var(--minScreenWidthX), 100vw, var(--maxScreenWidthX));
   --slopeX: calc(var(--deltaX) / var(--deltaWidthX));
   --baseX: calc((var(--fromX) - var(--slopeX) * var(--fromWidthX)) * 1px);
   --betweenX: calc(var(--baseX) + (var(--rangeWidthX) * var(--slopeX)));
 
   --deltaY: calc(var(--toY) - var(--fromY));
   --deltaWidthY: calc(var(--toWidthY) - var(--fromWidthY));
-  --rangeWidthY: max(100vw, calc(var(--fromWidthY)) * 1px);
+  --minScreenWidthY: calc(var(--fromWidthY)) * 1px;
+  --maxScreenWidthY: calc(var(--toWidthY) * 1px);
+  --rangeWidthY: clamp(var(--minScreenWidthY), 100vw, var(--maxScreenWidthY));
   --slopeY: calc(var(--deltaY) / var(--deltaWidthY));
   --baseY: calc((var(--fromY) - var(--slopeY) * var(--fromWidthY)) * 1px);
   --betweenY: calc(var(--baseY) + (var(--rangeWidthY) * var(--slopeY)));
@@ -190,26 +205,30 @@ footer {
 .take-your-time-xy {
   /* Parameters to interpolation function. Change this as needed. */
   --fromX: 0;
-  --toX: 240;
+  --toX: 300;
   --fromWidthX: 600;
-  --toWidthX: 1200;
+  --toWidthX: 1400;
 
   --fromY: 0;
   --toY: 60;
   --fromWidthY: 600;
-  --toWidthY: 1200;
+  --toWidthY: 1400;
 
   /* Implementation. Don't change this. Result is in the --between variable. */
   --deltaX: calc(var(--toX) - var(--fromX));
   --deltaWidthX: calc(var(--toWidthX) - var(--fromWidthX));
-  --rangeWidthX: max(100vw, calc(var(--fromWidthX)) * 1px);
+  --minScreenWidthX: calc(var(--fromWidthX)) * 1px;
+  --maxScreenWidthX: calc(var(--toWidthX) * 1px);
+  --rangeWidthX: clamp(var(--minScreenWidthX), 100vw, var(--maxScreenWidthX));
   --slopeX: calc(var(--deltaX) / var(--deltaWidthX));
   --baseX: calc((var(--fromX) - var(--slopeX) * var(--fromWidthX)) * 1px);
   --betweenX: calc(var(--baseX) + (var(--rangeWidthX) * var(--slopeX)));
 
   --deltaY: calc(var(--toY) - var(--fromY));
   --deltaWidthY: calc(var(--toWidthY) - var(--fromWidthY));
-  --rangeWidthY: max(100vw, calc(var(--fromWidthY)) * 1px);
+  --minScreenWidthY: calc(var(--fromWidthY)) * 1px;
+  --maxScreenWidthY: calc(var(--toWidthY) * 1px);
+  --rangeWidthY: clamp(var(--minScreenWidthY), 100vw, var(--maxScreenWidthY));
   --slopeY: calc(var(--deltaY) / var(--deltaWidthY));
   --baseY: calc((var(--fromY) - var(--slopeY) * var(--fromWidthY)) * 1px);
   --betweenY: calc(var(--baseY) + (var(--rangeWidthY) * var(--slopeY)));
@@ -230,6 +249,7 @@ footer {
     height: auto;
   }
 }
+
 .intro-svg-container {
   width: 100%;
   height: 100%;
@@ -254,7 +274,7 @@ footer {
   border-radius: 25px;
   overflow: auto;
   z-index: 1;
-  margin: 60px 0 60px 0;
+  margin: 60px 0 30px 0;
 }
 /* -------------------------------------------------- */
 
@@ -288,7 +308,7 @@ footer {
   color: #b0554b;
   text-align: center;
   z-index: 1;
-  margin: 280px 0 60px 0;
+  margin: 185px 0 30px 0;
 }
 
 .present-svg-container {
@@ -317,16 +337,12 @@ footer {
   color: #fffcf3;
   font-family: "Quattrocento";
   font-size: 1.5rem;
-  margin: 60px 0 60px 0;
-  padding: 0 50px 0 50px;
+  margin: 60px 0 30px 0;
   font-weight: 400;
   text-align: center;
   z-index: 1;
   position: absolute;
-}
-
-.embrace {
-  margin-top: 75px;
+  max-width: 90%;
 }
 
 .future-svg-container {
@@ -357,8 +373,8 @@ footer {
 
 .future-text-container {
   color: #000;
-  max-width: 80%;
-  margin: 100px 0 0 0;
+  max-width: 90%;
+  margin: 215px 0 0 0;
   font-family: "Quattrocento";
   font-size: 1.5rem;
   font-weight: 400;
@@ -367,17 +383,32 @@ footer {
   z-index: 1;
 }
 
-footer {
+footer,
+.the-actual-time {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   font-family: "Dosis", "Sans Serif";
   background-color: #fffcf3;
   color: #000;
-  font-size: 24px;
   text-align: center;
   position: relative;
   z-index: 1;
-  padding: 40px;
+}
+
+.the-actual-time {
+  color: #000;
+  max-width: 90%;
+  margin: 235px 0 0 0;
+  font-family: "Quattrocento";
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.real-footer {
+  margin: 350px 0 0 0;
+  font-size: 22px;
 }
 
 .github-link {
