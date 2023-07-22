@@ -275,7 +275,7 @@ footer {
   border-radius: 25px;
   /* overflow: auto; */
   z-index: 1;
-  margin: 90px 0 30px 0;
+  margin: 30px 0 30px 0;
 }
 /* -------------------------------------------------- */
 
@@ -300,7 +300,9 @@ footer {
   position: absolute;
   max-width: 100%;
 }
-.past-time-prompt-container {
+.past-time-prompt-container,
+.present-time-prompt-container,
+.future-time-prompt-container {
   display: flex;
   flex-direction: column;
   gap: 150px;
@@ -310,12 +312,17 @@ footer {
   font-family: "Quattrocento";
   font-size: 1.5rem;
   font-weight: 400;
-  color: #b0554b;
   text-align: center;
   z-index: 1;
 }
 
-.past-time-container {
+.past-time-prompt-container {
+  color: #b0554b;
+}
+
+.past-time-container,
+.present-time-container,
+.future-time-container {
   font-weight: 700;
 }
 /* .past-prompt-container {
@@ -361,6 +368,10 @@ footer {
   max-width: 700px;
 }
 
+.present-time-prompt-container {
+  color: #fffcf3;
+}
+
 .present-text-container {
   color: #fffcf3;
   font-family: "Quattrocento";
@@ -397,6 +408,10 @@ footer {
   transform: translateX(-50%);
   width: 90%;
   max-width: 700px;
+}
+
+.future-time-prompt-container {
+  color: #000;
 }
 
 .future-text-container {
