@@ -1,6 +1,6 @@
 html {
   /* Enables vertical scrolling if necessary */
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
   /* Put margin color here */
 }
 
@@ -22,7 +22,7 @@ body {
 #be-here-now,
 #imagine-the-future,
 footer {
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
   min-height: 100vh;
   position: relative;
   display: flex;
