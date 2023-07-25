@@ -397,6 +397,9 @@ function updatePresentTime(presentTimeZoneId, updatePrompt = false) {
     presentTimeElement.innerHTML = presentMessage;
     console.log("Present: " + presentMessage);
 
+    let actualTimeElement = document.querySelector("#actual-time");
+    actualTimeElement.innerHTML = `${presentTime}`;
+
     if (updatePrompt) {
       let presentPrompt = getPresentPromptBasedOnTime(
         presentTimeZone,
@@ -522,3 +525,24 @@ function updateFutureTime(futureTimeZoneId, updatePrompt = false) {
     }
   }
 }
+
+const app = document.getElementById("app");
+
+const pages = {
+  "past-page": document.getElementById("travel-back"),
+  "present-page": document.getElementById("be-here-now"),
+  "future-page": document.getElementById("imagine-the-future"),
+};
+
+function changePage(page) {
+  console.log("Page DOM element:", pages[page]);
+  console.log("Page value:", page);
+  pages[page].scrollIntoView({ behavior: "smooth" });
+}
+
+document
+  .getElementById("on-second-thought")
+  .addEventListener("change", function () {
+    console.log("Change event fired");
+    changePage(this.value);
+  });
