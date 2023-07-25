@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Dosis:wght@300;400;600&family=Rampart+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Dosis:wght@300;400;600&family=Roboto+Mono:wght@300;400;500;600;700&family=Victor+Mono:wght@100;300;400;500;600;700&family=Rampart+One&display=swap"
       rel="stylesheet"
     />
     <link
@@ -182,10 +182,18 @@
     <!-- FOOTER -->
     <footer>
       <div class="the-actual-time">
-        <p>wait a second - did you just want the time?</p>
-        <p>oh, i see. deep breath.</p>
-        <p>it's ${time}.</p>
+        <p>oooooh, you don't have the time?</p>
+        <p>here you go.</p>
+        <p id="actual-time"></p>
       </div>
+      <select id="on-second-thought">
+        <option value="">on second thought, i have some time to take...</option>
+        <option value="past-page">travel back</option>
+        <option value="present-page">be here now</option>
+        <option value="future-page">imagine the future</option>
+      </select>
+
+      <div id="app"></div>
       <p class="real-footer">
         this experience was coded with care by
         <span class="caro">CARO</span> and is

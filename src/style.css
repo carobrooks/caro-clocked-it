@@ -455,6 +455,12 @@ footer,
   text-align: center;
 }
 
+#actual-time {
+  font-size: 5rem;
+  font-weight: 400;
+  font-family: "Roboto Mono";
+}
+
 .real-footer {
   margin: 350px 0 0 0;
   font-size: 22px;
