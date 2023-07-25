@@ -1,6 +1,6 @@
 html {
   /* Enables vertical scrolling if necessary */
-  /* scroll-snap-type: y mandatory; */
+  scroll-snap-type: y mandatory;
   /* Put margin color here */
 }
 
@@ -11,7 +11,6 @@ body {
   margin: 0 auto;
   padding: 0;
   overflow-x: hidden;
-  /* Disables horizontal scrolling */
   overflow-y: scroll;
   position: relative;
 }
@@ -22,20 +21,18 @@ body {
 #be-here-now,
 #imagine-the-future,
 footer {
-  /* scroll-snap-align: start; */
+  scroll-snap-align: start;
   min-height: 100vh;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 0;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 #landing-page {
   background-color: #fffcf3;
-  overflow: hidden;
 }
 
 #introduction {
