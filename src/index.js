@@ -537,10 +537,7 @@ const pages = {
 function changePage(page) {
   console.log("Page DOM element:", pages[page]);
   console.log("Page value:", page);
-  window.scrollTo({
-    top: pages[page].offsetTop,
-    behavior: "smooth",
-  });
+  pages[page].scrollIntoView({ behavior: "smooth" });
 }
 
 document
