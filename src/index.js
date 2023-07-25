@@ -4,7 +4,7 @@ function getPresentTimezone() {
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
       let username = "carobrooks22"; // replace with your username
-      let apiEndpoint = "http://api.geonames.org/timezoneJSON";
+      let apiEndpoint = "https://secure.geonames.org/timezoneJSON";
       let apiUrl = `${apiEndpoint}?lat=${latitude}&lng=${longitude}&username=${username}`;
 
       axios.get(apiUrl).then(function (response) {
