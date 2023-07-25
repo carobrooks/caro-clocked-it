@@ -384,6 +384,12 @@ footer {
   max-width: 90%;
 }
 
+#present-text:hover,
+#past-text:hover,
+#future-text:hover {
+  cursor: pointer;
+}
+
 .future-svg-container {
   width: 100%;
   height: 100%;

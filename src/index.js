@@ -196,14 +196,14 @@ function getPastPromptBasedOnTime(timeZone, cityName) {
 
   let earlyMorningPrompts = [
     `Someone just woke up in ${cityName}. Can you imagine what they might have seen as they opened their eyes?`,
-    `Someone is waiting at a coffeeshop ${cityName} for a date. What might they be feeling as they sit with their drink in hand, opening themselves up to a new experience?`,
+    `Someone in ${cityName} has been struggling with depression recently. What new opportunities might be revealing themselves that give them hope?`,
     `There's a gentle light that only a new morning can bring. What might this look like in ${cityName}? How might it make someone feel as they start their day?`,
   ];
 
   let morningPrompts = [
-    `Someone in ${cityName} has been struggling with depression recently. What new opportunities might be revealing themselves that give them hope?`,
+    `A young man is waiting at a coffeeshop ${cityName} for a date. What might he be feeling as he sits with his drink in hand, opening himself up to a new experience?`,
     `Morning is in full swing in ${cityName}. How might a busy working mom be taking a moment to breathe?`,
-    `Someone in ${cityName} has an important interview today. How might they be preparing for it so that they feel confident?`,
+    `A recent college grad in ${cityName} has a job interview today. How might they be preparing for it so that they feel confident?`,
   ];
 
   let noonPrompts = [
