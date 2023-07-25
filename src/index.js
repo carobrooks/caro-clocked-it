@@ -318,7 +318,7 @@ function getPresentPromptBasedOnTime(timeZone, cityName) {
   let morningPrompts = [
     `A popular vegan bakery in ${cityName} is busier than usual this morning. How might a new employee be feeling as they navigate the constant demands of customers? How might they manage their stress?`,
     `A young man is stuck in traffic as an Uber driver in ${cityName}. What music might he be playing to help him get through his shift?`,
-    `Someone in ${cityName} was just told their cancer is in remission. As the sun rises over the city, how might they be reflecting on the transient nature of life?`,
+    `Someone in ${cityName} was just told their cancer is in remission. As the sun rises over the city, they wander to their favorite park. How might they be reflecting on the transient nature of life after receiving this news?`,
   ];
 
   let noonPrompts = [
@@ -330,7 +330,7 @@ function getPresentPromptBasedOnTime(timeZone, cityName) {
   let midAfternoonPrompts = [
     `Someone in ${cityName} is celebrating 60 days sober. How might they be feeling as they reflect on their progress?`,
     `A young woman in ${cityName} is thinking of her mother who passed away 10 years ago today. What might she be feeling as she reflects on the passage of time and how it's shaped and supported her grief?`,
-    `A young actor in ${cityName} just booked their first feature film. What might they be feeling as they reflect on their hard work paying off?`,
+    `A young writer in ${cityName} is sitting in the coffee shop where she has been writing her first novel for the last year-and-a-half. She just finished her final draft. What might she be feeling as she reflects on all the time she's put into her craft to get to this point?`,
   ];
 
   let eveningPrompts = [
