@@ -1,34 +1,19 @@
 function getPresentTimezone() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      let latitude = position.coords.latitude;
-      let longitude = position.coords.longitude;
-      let username = "carobrooks22"; // replace with your username
-      let apiEndpoint = "https://secure.geonames.org/timezoneJSON";
-      let apiUrl = `${apiEndpoint}?lat=${latitude}&lng=${longitude}&username=${username}`;
+  let currentTimeZoneId = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  console.log(currentTimeZoneId);
 
-      axios.get(apiUrl).then(function (response) {
-        let currentTimeZoneId = response.data.timezoneId;
-        console.log("Current TimeZone ID: ", currentTimeZoneId);
-        let pastTimeZoneId = getPastTimezone(currentTimeZoneId);
-        let futureTimeZoneId = getFutureTimezone(currentTimeZoneId);
+  let pastTimeZoneId = getPastTimezone(currentTimeZoneId);
+  let futureTimeZoneId = getFutureTimezone(currentTimeZoneId);
 
-        updatePastTime(pastTimeZoneId, true);
-        updatePresentTime(currentTimeZoneId, true);
-        updateFutureTime(futureTimeZoneId, true);
+  updatePastTime(pastTimeZoneId, true);
+  updatePresentTime(currentTimeZoneId, true);
+  updateFutureTime(futureTimeZoneId, true);
 
-        setInterval(() => {
-          updatePastTime(pastTimeZoneId);
-          updatePresentTime(currentTimeZoneId);
-          updateFutureTime(futureTimeZoneId);
-        }, 1000);
-      });
-    });
-  } else {
-    alert(
-      "hm. looks like the geolocation isn't working atm. check back later!"
-    );
-  }
+  setInterval(() => {
+    updatePastTime(pastTimeZoneId);
+    updatePresentTime(currentTimeZoneId);
+    updateFutureTime(futureTimeZoneId);
+  }, 1000);
 }
 
 getPresentTimezone();
@@ -241,7 +226,7 @@ function getPastPromptBasedOnTime(timeZone, cityName) {
   if (hour < 5) {
     selectedPastPrompt =
       lateNightPrompts[Math.floor(Math.random() * lateNightPrompts.length)];
-  } else if (hour < 10) {
+  } else if (hour < 9) {
     selectedPastPrompt =
       earlyMorningPrompts[
         Math.floor(Math.random() * earlyMorningPrompts.length)
@@ -249,7 +234,7 @@ function getPastPromptBasedOnTime(timeZone, cityName) {
   } else if (hour < 12) {
     selectedPastPrompt =
       morningPrompts[Math.floor(Math.random() * morningPrompts.length)];
-  } else if (hour < 15) {
+  } else if (hour < 14) {
     selectedPastPrompt =
       noonPrompts[Math.floor(Math.random() * noonPrompts.length)];
   } else if (hour < 18) {
@@ -342,7 +327,7 @@ function getPresentPromptBasedOnTime(timeZone, cityName) {
   let nightPrompts = [
     `A ${cityName} native recently moved back after years away. What might they be doing tonight to rekindle old friendships?`,
     `A young musician in ${cityName} has their first show tonight. What might they be feeling as they walk into the venue? Onto the stage?`,
-    `A high school basketball team in ${cityName} just won their first game of the season tonight. How might they be feeling as they reflect on the hard work they've put in over the last few months?`,
+    `A high school basketball team in ${cityName} won their first game of the season tonight. How might they be feeling as they reflect on the hard work they've put in over the last few months?`,
   ];
 
   let lateNightPrompts = [
@@ -356,7 +341,7 @@ function getPresentPromptBasedOnTime(timeZone, cityName) {
   if (hour < 5) {
     selectedPresentPrompt =
       lateNightPrompts[Math.floor(Math.random() * lateNightPrompts.length)];
-  } else if (hour < 10) {
+  } else if (hour < 9) {
     selectedPresentPrompt =
       earlyMorningPrompts[
         Math.floor(Math.random() * earlyMorningPrompts.length)
@@ -364,7 +349,7 @@ function getPresentPromptBasedOnTime(timeZone, cityName) {
   } else if (hour < 12) {
     selectedPresentPrompt =
       morningPrompts[Math.floor(Math.random() * morningPrompts.length)];
-  } else if (hour < 15) {
+  } else if (hour < 14) {
     selectedPresentPrompt =
       noonPrompts[Math.floor(Math.random() * noonPrompts.length)];
   } else if (hour < 18) {
@@ -476,7 +461,7 @@ function getFuturePromptBasedOnTime(timeZone, cityName) {
   if (hour < 5) {
     selectedFuturePrompt =
       lateNightPrompts[Math.floor(Math.random() * lateNightPrompts.length)];
-  } else if (hour < 10) {
+  } else if (hour < 9) {
     selectedFuturePrompt =
       earlyMorningPrompts[
         Math.floor(Math.random() * earlyMorningPrompts.length)
@@ -484,7 +469,7 @@ function getFuturePromptBasedOnTime(timeZone, cityName) {
   } else if (hour < 12) {
     selectedFuturePrompt =
       morningPrompts[Math.floor(Math.random() * morningPrompts.length)];
-  } else if (hour < 15) {
+  } else if (hour < 14) {
     selectedFuturePrompt =
       noonPrompts[Math.floor(Math.random() * noonPrompts.length)];
   } else if (hour < 18) {
