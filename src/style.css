@@ -417,12 +417,12 @@ footer {
   color: #000;
 }
 
-@media screen and (max-width: 812px) and (orientation: landscape) {
+@media screen and (max-width: 912px) and (orientation: landscape) {
   .past-time-prompt-container,
   .present-time-prompt-container,
   .future-time-prompt-container {
     gap: 40px;
-    margin-top: 200px;
+    margin-top: 250px;
     margin-bottom: 60px;
   }
 }
@@ -437,10 +437,17 @@ footer {
   text-align: center;
   z-index: 1;
 }
-/* 
-@media screen and (max-width: 812px) and (orientation: landscape) {
-  .present-text-container {
-    margin: 150px 0 30px 0;
+
+@media screen and (max-width: 912px) and (orientation: landscape) {
+  .past-text-container,
+  .future-text-container {
+    margin: 260px 0 30px 0;
+  }
+}
+
+/* @media screen and (min-width: 713px) and (max-width: 912px) and (orientation: landscape) {
+  .past-text-container {
+    margin: 250px 0 30px 0;
   }
 } */
 
