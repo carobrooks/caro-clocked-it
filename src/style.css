@@ -422,7 +422,7 @@ footer {
   .present-time-prompt-container,
   .future-time-prompt-container {
     gap: 40px;
-    margin-top: 150px;
+    margin-top: 200px;
     margin-bottom: 60px;
   }
 }
