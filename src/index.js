@@ -367,6 +367,7 @@ function getPresentPromptBasedOnTime(timeZone, cityName) {
       nightPrompts[Math.floor(Math.random() * nightPrompts.length)];
   }
 
+  console.log(selectedPresentPrompt);
   return selectedPresentPrompt;
 }
 
@@ -487,6 +488,7 @@ function getFuturePromptBasedOnTime(timeZone, cityName) {
       nightPrompts[Math.floor(Math.random() * nightPrompts.length)];
   }
 
+  console.log(selectedFuturePrompt);
   return selectedFuturePrompt;
 }
 
