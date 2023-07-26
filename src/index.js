@@ -180,26 +180,26 @@ function getPastPromptBasedOnTime(timeZone, cityName) {
   let hour = timeZone.hour();
 
   let earlyMorningPrompts = [
-    `Someone just woke up in ${cityName}. Can you imagine what they might have seen as they opened their eyes?`,
-    `Someone in ${cityName} has been struggling with depression recently. What new opportunities might be revealing themselves that give them hope?`,
-    `There's a gentle light that only a new morning can bring. What might this look like in ${cityName}? How might it make someone feel as they start their day?`,
+    `A nightshift worker in ${cityName} is heading home after a long workday. What thoughts might be crossing their mind as they prepare for sleep while the rest of the world awakens?`,
+    `A teenage boy in ${cityName} is dreading to go to school this morning because he fears he'll be bullied again. How might he communicate his feelings so that he can find support?`,
+    `A new mom in ${cityName} is up early after a sleepless night. As she rocks her newborn back to sleep, she watches the sunrise. How might she be feeling in this quiet, early hour? What hopes might she have for her child's future?`,
   ];
 
   let morningPrompts = [
-    `A young man is waiting at a coffeeshop ${cityName} for a date. What might he be feeling as he sits with his drink in hand, opening himself up to a new experience?`,
+    `A young man is waiting at a coffeeshop in ${cityName} for a date. What might he be feeling as he sits with his drink in hand, opening himself up to a new experience?`,
     `Morning is in full swing in ${cityName}. How might a busy working mom be taking a moment to breathe?`,
-    `A recent college grad in ${cityName} has a job interview today. How might they be preparing for it so that they feel confident?`,
+    `A recent computer science grad in ${cityName} has a technical job interview this morning. What might they be thinking about as they prepare for it? How might they be feeling?`,
   ];
 
   let noonPrompts = [
-    `Someone in ${cityName} is on their lunch break. What kind of cuisine do you think they might be enjoying? How does it smell, taste? How does it make them feel?`,
-    `Someone has been struggling with depression in ${cityName} lately. As the afternoon sun shines brightly, what hopes might be rising for them?`,
-    `Someone in ${cityName} is taking a midday break. How might they be enjoying their time between their everyday responsibilities?`,
+    `A construction worker in ${cityName} is on their lunch break. What kind of food do you think they might be enjoying? How does it smell, taste? How does it make them feel?`,
+    `A middle-aged man in ${cityName} has been struggling with depression since he was laid off a few weeks ago. As the sun poked through the clouds this morning, he realized he needs help. Who might he reach out to for support this afternoon?`,
+    `A tenant lawyer in ${cityName} is taking a midday break. How might they be enjoying their time between their everyday responsibilities?`,
   ];
 
   let midAfternoonPrompts = [
-    `Someone in ${cityName} is preparing to leave on a long international trip tomorrow. How might they find a moment to pause amidst the chaos of preparing to leave?`,
-    `How might friends in ${cityName} be planning to spend their evening together?`,
+    `A young couple in ${cityName} is preparing to leave on their first international trip tomorrow. How might they find a moment to pause this afternoon amidst the chaos of preparing to leave?`,
+    `Two old college friends in ${cityName} haven't seen each other in a few years, and are texting about getting together tonight. How might they choose to spend their first evening back together?`,
     `A couple and their young child recently immigrated to ${cityName}. What might they be doing this afternoon to settle in and explore their new city? How might they be feeling?`,
   ];
 
@@ -210,18 +210,19 @@ function getPastPromptBasedOnTime(timeZone, cityName) {
   ];
 
   let nightPrompts = [
-    `Someone in ${cityName} is putting final touches on a surprise birthday party for their sister. What details might they be thinking about?`,
-    `Someone in ${cityName} is telling their loved ones a story under the starry sky. What might it be about?`,
-    `Someone in ${cityName} is proposing marriage to their partner. What kind of setting might they be in? How might they both be feeling?`,
+    `A 27-year-old woman in ${cityName} is welcoming guests to her sister's surprise birthday party. How might she be feeling as she waits for her sister to arrive?`,
+    `A grandmother is telling her loved ones the story of how she immigrated to ${cityName} under the starry sky. What might the atmosphere be like as everyone listens attentively?`,
+    `A 30-year-old man in ${cityName} is proposing marriage to their partner. What kind of setting might they be in? How might they both be feeling?`,
   ];
 
   let lateNightPrompts = [
-    `Someone in ${cityName} is struggling to fall asleep after a stressful day. What ways might they find to soothe their worries and ease themselves into sleep?`,
-    `A young couple just brought their first child home from the hospital in ${cityName}. What might they be thinking and feeling?`,
-    `Someone in ${cityName} recently lost a loved one. How might they give space to their grief in the quiet hours of the night?`,
+    `A teenage boy in ${cityName} is struggling to fall asleep after a hard day at school. What ways might he find to soothe his worries and ease himself into sleep?`,
+    `A young couple just brought their first child home from the hospital in ${cityName}. What might they be thinking and feeling as they settle in?`,
+    `A young woman in ${cityName} recently lost her mother. How might she be giving space to her grief in the quiet hours of the night?`,
   ];
 
   let selectedPastPrompt = "";
+  console.log(hour);
 
   if (hour < 5) {
     selectedPastPrompt =
@@ -250,6 +251,7 @@ function getPastPromptBasedOnTime(timeZone, cityName) {
       nightPrompts[Math.floor(Math.random() * nightPrompts.length)];
   }
 
+  console.log(selectedPastPrompt);
   return selectedPastPrompt;
 }
 
@@ -303,37 +305,37 @@ function getPresentPromptBasedOnTime(timeZone, cityName) {
   let morningPrompts = [
     `A popular vegan bakery in ${cityName} is busier than usual this morning. How might a new employee be feeling as they navigate the constant demands of customers? How might they manage their stress?`,
     `A young man is stuck in traffic as an Uber driver in ${cityName}. What music might he be playing to help him get through his shift?`,
-    `Someone in ${cityName} was just told their cancer is in remission. As the sun rises over the city, they wander to their favorite park. How might they be reflecting on the transient nature of life after receiving this news?`,
+    `A middle-aged woman in ${cityName} was just told her breast cancer is in remission. As the sun rises over the city, she wanders to her favorite park. How might she be reflecting on the transient nature of life after receiving this news?`,
   ];
 
   let noonPrompts = [
     `A man is visiting childhood friends in ${cityName} for the first time. What sights might they be showing him?`,
     `A local fireman is retiring today in ${cityName}. How might he be feeling as he reflects back on his decades of service to his community?`,
-    `Someone's flight just got cancelled from ${cityName} to their hometown. Who might they be calling to inform they'll be late? What might they be feeling?`,
+    `A father of three girls has been in ${cityName} on a 10-day business trip. He just arrived to the airport to find his return flight got cancelled. Who might he be calling to inform he'll be late? How might he, and those back home, be feeling?`,
   ];
 
   let midAfternoonPrompts = [
-    `Someone in ${cityName} is celebrating 60 days sober. How might they be feeling as they reflect on their progress?`,
-    `A young woman in ${cityName} is thinking of her mother who passed away 10 years ago today. What might she be feeling as she reflects on the passage of time and how it's shaped and supported her grief?`,
+    `A middle-aged man in ${cityName} is celebrating 90 days sober today. How might he be feeling as he reflects on his progress?`,
+    `An eldery woman in ${cityName} is thinking of her mother who passed away when she was 14 years old. What might she be feeling as she reflects on the passage of time and how it's shaped and supported her grief?`,
     `A young writer in ${cityName} is sitting in the coffee shop where she has been writing her first novel for the last year-and-a-half. She just finished her final draft. What might she be feeling as she reflects on all the time she's put into her craft to get to this point?`,
   ];
 
   let eveningPrompts = [
     `A surgeon just completed a successful 12-hour long procedure in ${cityName}. How might they be feeling as they reflect on all the years they've spent mastering their life-saving skill?`,
     `A high school senior in ${cityName} just read the letter of acceptance to their dream college. How might they be celebrating their hard work and potential future?`,
-    `Someone in ${cityName} is celebrating their 90th birthday with their loved ones. What old songs might they be singing along to? How might they be feeling as they look around at the people surrounding them?`,
+    `An elderly man in ${cityName} is celebrating his 90th birthday with his loved ones. What old songs might he be singing along to? How might he be feeling as he looks around at the people surrounding him?`,
   ];
 
   let nightPrompts = [
     `A ${cityName} native recently moved back after years away. What might they be doing tonight to rekindle old friendships?`,
-    `A young musician in ${cityName} has their first show tonight. What might they be feeling as they walk into the venue? Onto the stage?`,
+    `A young musician in ${cityName} has her first show tonight. What might she be feeling as she walks into the venue? Onto the stage?`,
     `A high school basketball team in ${cityName} won their first game of the season tonight. How might they be feeling as they reflect on the hard work they've put in over the last few months?`,
   ];
 
   let lateNightPrompts = [
     `A baker is opening up shop in ${cityName}. How might they be feeling as they prepare food for their community before dawn?`,
-    `A young woman is struggling to sleep in ${cityName}. She's thinking about a hurtful comment she made to her best friend earlier in the day. How might she reflect on the situation so that she can fall asleep? What apology might she be crafting in her mind?`,
-    `An emergency room nurse in ${cityName} is working her fourth 12-hour shift of the week. What words of encouragement might they be telling themselves to help make it through their shift?`,
+    `A middle-aged woman is struggling to sleep in ${cityName}. She's thinking about a hurtful comment she made to her daughter earlier in the day. How might she reflect on the situation so that she can fall asleep? What apology might she be crafting in her mind?`,
+    `An emergency room nurse in ${cityName} is working her fourth 12-hour shift of the week. What words of encouragement might she be telling herself to help make it through her shift?`,
   ];
 
   let selectedPresentPrompt = "";
@@ -415,45 +417,45 @@ function getFuturePromptBasedOnTime(timeZone, cityName) {
   let hour = timeZone.hour();
 
   let earlyMorningPrompts = [
-    `What do you imagine the early morning scene in ${cityName} like, before people have settled into their routines?`,
-    `What kind of morning hustle do you imagine is happening in ${cityName}?`,
-    `What might someone's morning commute in ${cityName} like?`,
+    `A mother and her child just planted a tree in ${cityName}. What do you imagine the tone of the mother's voice was like as she helped her child along? How do you think the child feels after planting the seeds?`,
+    `A young woman is teaching her first yoga class in ${cityName}. How might she be feeling as she sets up her space?`,
+    `A single parent in ${cityName} is making breakfast while helping their kids get ready for school. How might they be feeling as they manage these morning tasks?`,
   ];
 
   let morningPrompts = [
-    `As ${cityName} settles into a new day, how might someone take a moment to reflect on what matters most to them?`,
-    `What might someone be contemplating as they take a mid-morning stroll in ${cityName}?`,
-    `And just like that, early morning has become mid-morning, and soon it will be afternoon. What might someone in ${cityName} be doing to make the most of this transient moment in time?`,
+    `A small business owner in ${cityName} has just opened the doors to their dream coffee shop. As the first customers trickle in, what might they be feeling? What hopes do they have for their new venture?`,
+    `A 36-year-old woman in ${cityName} is learning web development after spending her young adult life as an actress. She's getting frustrated working on a problem. How might she take a break to reset and clear her mind?`,
+    `A young man in ${cityName} is stuck in traffic on his way to an important meeting. What music might he be listening to in his car to help him stay calm and focused?`,
   ];
 
   let noonPrompts = [
-    `What kind of food in ${cityName} do you think someone might be enjoying for lunch?`,
-    `What might the sound be like near a local school at lunchtime recess in ${cityName}? What about when students return to class?`,
-    `What kind of exercise might someone be getting midday in ${cityName}?`,
+    `A vegan restaurant just opened up in ${cityName} and has lines around the corner every day. Now the owner is nervously awaiting a food critic's review. How might she be feeling as she prepares for the lunchtime rush?`,
+    `A woman in her 50s just crossed the finish line of her first half marathon in ${cityName}. How might she be feeling as she cools down and celebrates her achievement?`,
+    `It's lunchtime recess at an elementary school in ${cityName}. How might it sound as the children play? How might the sounds change as the students return to class?`,
   ];
 
   let midAfternoonPrompts = [
-    `As the afternoon wanes in ${cityName}, what might someone ponder about the transient nature of the day?`,
-    `How could the beauty of the late afternoon in ${cityName} inspire reflections on the beauty of impermanence?`,
-    `What might the softening light of the late afternoon in ${cityName} teach us about the gentleness of acceptance?`,
+    `A young couple in ${cityName} is trying to fix a leaking pipe in their new home. How might they be working together to solve this unexpected problem?`,
+    `A teenage girl in ${cityName} is nervously preparing for her driving test. How might she calm her nerves and focus on the road?`,
+    `A retired teacher in ${cityName} is volunteering at a local library's story hour. What book might she be reading to the children, and why?`,
   ];
 
   let eveningPrompts = [
-    `What could the coming of night in ${cityName} teach us about the cycle of life and death?`,
-    `In what ways might the evening starlight in ${cityName} provoke thoughts about the light that exists even in darkness?`,
-    `As the temperatures cool down in ${cityName}, how might someone be reflecting on the changing seasons of their life?`,
+    `A young graduate in ${cityName} is stepping into their first apartment alone. How might they be feeling as they look around at their new space?`,
+    `A teenage girl in ${cityName} is giving her first speech at a climate change rally. How might she be feeling before stepping up to the podium? How might she feel after her speech?`,
+    `A family in ${cityName} is having a reunion after years of living apart. What stories might they be sharing over a home-cooked meal?`,
   ];
 
   let nightPrompts = [
-    `What might someone in ${cityName} be letting go of in order to fall asleep?`,
-    `Can you envision someone in ${cityName} reading a book by a soft light as they wind down for bed?`,
-    `How might someone in ${cityName} be winding down during these peaceful hours of the night?`,
+    `A talented painter in ${cityName} has been struggling to make ends meet for the last seven years. Tonight, they're displaying their work at a gallery for the first time. What emotions might they be experiencing as visitors begin to arrive?`,
+    `An elderly man in ${cityName} is baking his late wife's favorite cookies for the first time. How might he be feeling as he mixes the dough?`,
+    `A street musician in ${cityName} is setting up their instruments for the night. How might they be feeling as they prepare to perform? What songs might they decide to sing?`,
   ];
 
   let lateNightPrompts = [
-    `What worries might be keeping someone awake in the night in ${cityName}? What might they let go of to fall back asleep?`,
-    `Can you imagine what a night owl might be up to in ${cityName}?`,
-    `How might a new parent be caring for their baby at this late hour in ${cityName}?`,
+    `A mother of four young children is struggling to sleep right now in ${cityName}. What worries might be keeping her up? What might she let go of to fall back asleep?`,
+    `A young couple in ${cityName} who recently moved in together just had their first fight. How might they be communicating their feelings so that they can repair their connection?`,
+    `A new parent in ${cityName} was just awoken by their crying baby. How might they be feeling as they soothe their baby?`,
   ];
 
   let selectedFuturePrompt = "";
