@@ -495,12 +495,19 @@ footer,
 }
 
 .dropdown {
-  width: 330px;
+  width: 350px;
   height: 30px;
-  font-size: 18px;
+  font-size: 16px;
   border: 2px solid #000;
   color: #000;
   border-radius: 4px;
+  font-family: "Quattrocento";
+}
+
+@media screen and (max-width: 350px) {
+  .dropdown {
+    width: 250px;
+  }
 }
 
 .real-footer {
