@@ -162,7 +162,7 @@ function getFutureTimezone(currentTimeZoneId) {
   return timezoneId;
 }
 
-let pastClickMe = document.getElementById("travel-back");
+let pastClickMe = document.getElementById("past-click-me");
 let pastText = document.getElementById("past-text");
 let pastTimePrompt = document.querySelector(".past-time-prompt-container");
 
@@ -176,12 +176,22 @@ pastClickMe.addEventListener("click", function () {
   }
 });
 
+pastTimePrompt.addEventListener("click", function () {
+  if (getComputedStyle(pastText).display === "none") {
+    pastText.style.display = "block";
+    pastTimePrompt.style.display = "none";
+  } else {
+    pastText.style.display = "none";
+    pastTimePrompt.style.display = "flex";
+  }
+});
+
 function getPastPromptBasedOnTime(timeZone, cityName) {
   let hour = timeZone.hour();
 
   let earlyMorningPrompts = [
     `A nightshift worker in ${cityName} is heading home after a long workday. What thoughts might be crossing their mind as they prepare for sleep while the rest of the world awakens?`,
-    `A teenage boy in ${cityName} is dreading to go to school this morning because he fears he'll be bullied again. How might he communicate his feelings so that he can find support?`,
+    `A teenage boy in ${cityName} is dreading going to school this morning because he fears he'll be bullied again. How might he communicate his feelings so that he can find support?`,
     `A new mom in ${cityName} is up early after a sleepless night. As she rocks her newborn back to sleep, she watches the sunrise. How might she be feeling in this quiet, early hour? What hopes might she have for her child's future?`,
   ];
 
@@ -227,7 +237,7 @@ function getPastPromptBasedOnTime(timeZone, cityName) {
   if (hour < 5) {
     selectedPastPrompt =
       lateNightPrompts[Math.floor(Math.random() * lateNightPrompts.length)];
-  } else if (hour < 9) {
+  } else if (hour < 8) {
     selectedPastPrompt =
       earlyMorningPrompts[
         Math.floor(Math.random() * earlyMorningPrompts.length)
@@ -265,7 +275,7 @@ function updatePastTime(pastTimeZoneId, updatePrompt = false) {
     console.log("Past TimeZone ID: ", pastTimeZoneId);
     let cityName = pastTimeZoneId.split("/")[1].replace("_", " ");
 
-    let pastMessage = `It's currently ${pastTime} on ${pastDay} in ${cityName}.`;
+    let pastMessage = `It's currently <span id="actual-past-time">${pastTime}</span> on ${pastDay} in ${cityName}.`;
     pastTimeElement.innerHTML = pastMessage;
     console.log("Past: " + pastMessage);
 
@@ -278,7 +288,7 @@ function updatePastTime(pastTimeZoneId, updatePrompt = false) {
   }
 }
 
-let presentClickMe = document.getElementById("be-here-now");
+let presentClickMe = document.getElementById("present-click-me");
 let presentText = document.getElementById("present-text");
 let presentTimePrompt = document.querySelector(
   ".present-time-prompt-container"
@@ -293,6 +303,17 @@ presentClickMe.addEventListener("click", function () {
     presentText.style.display = "block";
   }
 });
+
+presentTimePrompt.addEventListener("click", function () {
+  if (getComputedStyle(presentText).display === "none") {
+    presentText.style.display = "block";
+    presentTimePrompt.style.display = "none";
+  } else {
+    presentText.style.display = "none";
+    presentTimePrompt.style.display = "flex";
+  }
+});
+
 function getPresentPromptBasedOnTime(timeZone, cityName) {
   let hour = timeZone.hour();
 
@@ -315,8 +336,8 @@ function getPresentPromptBasedOnTime(timeZone, cityName) {
   ];
 
   let midAfternoonPrompts = [
-    `A middle-aged man in ${cityName} is celebrating 90 days sober today. How might he be feeling as he reflects on his progress?`,
-    `An eldery woman in ${cityName} is thinking of her mother who passed away when she was 14 years old. What might she be feeling as she reflects on the passage of time and how it's shaped and supported her grief?`,
+    `A middle-aged man in ${cityName} is celebrating 60 days sober today. How might he be feeling as he reflects on his progress?`,
+    `An eldery woman in ${cityName} is thinking of her mother who passed away when she was only 14 years old. What might she be feeling as she reflects on the passage of time and how it's shaped and supported her through her grief?`,
     `A young writer in ${cityName} is sitting in the coffee shop where she has been writing her first novel for the last year-and-a-half. She just finished her final draft. What might she be feeling as she reflects on all the time she's put into her craft to get to this point?`,
   ];
 
@@ -343,7 +364,7 @@ function getPresentPromptBasedOnTime(timeZone, cityName) {
   if (hour < 5) {
     selectedPresentPrompt =
       lateNightPrompts[Math.floor(Math.random() * lateNightPrompts.length)];
-  } else if (hour < 9) {
+  } else if (hour < 8) {
     selectedPresentPrompt =
       earlyMorningPrompts[
         Math.floor(Math.random() * earlyMorningPrompts.length)
@@ -381,7 +402,7 @@ function updatePresentTime(presentTimeZoneId, updatePrompt = false) {
     let presentTime = presentTimeZone.format("h:mm:ss A");
     let cityName = presentTimeZoneId.split("/")[1].replace("_", " ");
 
-    let presentMessage = `It's currently ${presentTime} on ${presentDay} where you are.`;
+    let presentMessage = `It's currently <span id="actual-present-time">${presentTime}</span> on ${presentDay} where you are.`;
     presentTimeElement.innerHTML = presentMessage;
     console.log("Present: " + presentMessage);
 
@@ -400,7 +421,7 @@ function updatePresentTime(presentTimeZoneId, updatePrompt = false) {
   }
 }
 
-let futureClickMe = document.getElementById("imagine-the-future");
+let futureClickMe = document.getElementById("future-click-me");
 let futureText = document.getElementById("future-text");
 let futureTimePrompt = document.querySelector(".future-time-prompt-container");
 
@@ -414,17 +435,27 @@ futureClickMe.addEventListener("click", function () {
   }
 });
 
+futureTimePrompt.addEventListener("click", function () {
+  if (getComputedStyle(futureText).display === "none") {
+    futureText.style.display = "block";
+    futureTimePrompt.style.display = "none";
+  } else {
+    futureText.style.display = "none";
+    futureTimePrompt.style.display = "flex";
+  }
+});
+
 function getFuturePromptBasedOnTime(timeZone, cityName) {
   let hour = timeZone.hour();
 
   let earlyMorningPrompts = [
-    `A mother and her child just planted a tree in ${cityName}. What do you imagine the tone of the mother's voice was like as she helped her child along? How do you think the child feels after planting the seeds?`,
-    `A young woman is teaching her first yoga class in ${cityName}. How might she be feeling as she sets up her space?`,
+    `A young woman is teaching her first yoga class in ${cityName} this morning. How might she feel as she welcomes her first student?`,
+    `A small business owner in ${cityName} has just opened the doors to their dream bakery. As the first customers trickle in, what might they be feeling? What hopes do they have for their new venture?`,
     `A single parent in ${cityName} is making breakfast while helping their kids get ready for school. How might they be feeling as they manage these morning tasks?`,
   ];
 
   let morningPrompts = [
-    `A small business owner in ${cityName} has just opened the doors to their dream coffee shop. As the first customers trickle in, what might they be feeling? What hopes do they have for their new venture?`,
+    `A mother and her child just planted some carrots in ${cityName}. What do you imagine the tone of the mother's voice was like as she helped her child drop the seeds? How do you think the child felt afterwards?`,
     `A 36-year-old woman in ${cityName} is learning web development after spending her young adult life as an actress. She's getting frustrated working on a problem. How might she take a break to reset and clear her mind?`,
     `A young man in ${cityName} is stuck in traffic on his way to an important meeting. What music might he be listening to in his car to help him stay calm and focused?`,
   ];
@@ -455,7 +486,7 @@ function getFuturePromptBasedOnTime(timeZone, cityName) {
 
   let lateNightPrompts = [
     `A mother of four young children is struggling to sleep right now in ${cityName}. What worries might be keeping her up? What might she let go of to fall back asleep?`,
-    `A young couple in ${cityName} who recently moved in together just had their first fight. How might they be communicating their feelings so that they can repair their connection?`,
+    `A young couple in ${cityName} who just moved in together had their first fight earlier in the evening, and now they're struggling to fall asleep. How might they communicate their feelings so that they can repair their connection and get some rest?`,
     `A new parent in ${cityName} was just awoken by their crying baby. How might they be feeling as they soothe their baby?`,
   ];
 
@@ -464,7 +495,7 @@ function getFuturePromptBasedOnTime(timeZone, cityName) {
   if (hour < 5) {
     selectedFuturePrompt =
       lateNightPrompts[Math.floor(Math.random() * lateNightPrompts.length)];
-  } else if (hour < 9) {
+  } else if (hour < 8) {
     selectedFuturePrompt =
       earlyMorningPrompts[
         Math.floor(Math.random() * earlyMorningPrompts.length)
@@ -502,7 +533,7 @@ function updateFutureTime(futureTimeZoneId, updatePrompt = false) {
     let futureTime = futureTimeZone.format("h:mm:ss A");
     let cityName = futureTimeZoneId.split("/")[1].replace("_", " ");
 
-    let futureMessage = `It's currently ${futureTime} on ${futureDay} in ${cityName}.`;
+    let futureMessage = `It's currently <span id="actual-future-time">${futureTime}</span> on ${futureDay} in ${cityName}.`;
     futureTimeElement.innerHTML = futureMessage;
     console.log("Future: " + futureMessage);
 
