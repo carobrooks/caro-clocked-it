@@ -445,11 +445,11 @@ footer {
   }
 }
 
-/* @media screen and (min-width: 713px) and (max-width: 912px) and (orientation: landscape) {
-  .past-text-container {
-    margin: 250px 0 30px 0;
-  }
-} */
+#past-click-me,
+#present-click-me,
+#future-click-me {
+  text-decoration: underline;
+}
 
 footer,
 .the-actual-time {
@@ -478,6 +478,29 @@ footer,
   font-size: 5rem;
   font-weight: 400;
   font-family: "Roboto Mono";
+}
+
+#actual-past-time,
+#actual-present-time,
+#actual-future-time {
+  font-family: "Roboto Mono";
+  padding: 5px;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 540px) {
+  #actual-time {
+    font-size: 3rem;
+  }
+}
+
+.dropdown {
+  width: 330px;
+  height: 30px;
+  font-size: 18px;
+  border: 2px solid #000;
+  color: #000;
+  border-radius: 4px;
 }
 
 .real-footer {
