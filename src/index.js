@@ -22,7 +22,7 @@ function getPastTimezone(currentTimeZoneId) {
   let timezoneId;
   if (
     currentTimeZoneId.startsWith("America/New_York") ||
-    currentTimeZoneId.startsWith("America/")
+    currentTimeZoneId.startsWith("America/Detroit")
   ) {
     const options = [
       "America/Los_Angeles",
@@ -30,7 +30,6 @@ function getPastTimezone(currentTimeZoneId) {
       "Pacific/Honolulu",
       "America/Vancouver",
       "America/Tijuana",
-      "America/Merida",
       "America/Juneau",
       "America/Guatemala",
       "Pacific/Tahiti",
@@ -49,7 +48,8 @@ function getPastTimezone(currentTimeZoneId) {
     timezoneId = options[Math.floor(Math.random() * options.length)];
   } else if (
     currentTimeZoneId.startsWith("America/Los_Angeles") ||
-    currentTimeZoneId.startsWith("America/Denver")
+    currentTimeZoneId.startsWith("America/Denver") ||
+    currentTimeZoneId.startsWith("America/Phoenix")
   ) {
     const options = ["Pacific/Honolulu", "Pacific/Pago_Pago", "Pacific/Tahiti"];
     timezoneId = options[Math.floor(Math.random() * options.length)];
